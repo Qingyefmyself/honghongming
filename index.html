@@ -30,24 +30,14 @@ body {
 header {
     position: relative;
     padding: 20px 60px 20px;
-    background-image: url("https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/b1c2072acd574d05ba7b728e627270c4~tplv-a9rns2rl98-image.image?rcl=202512221102144E647658D069F0441B49&rk3s=8e244e95&rrcfp=f06b921b&x-expires=1768964574&x-signature=tAW%2B%2FP2e1OUddPNyJDdA0HJrf%2FE%3D");
+    background-image: url("ai12.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     box-shadow: 0 10px 40px rgba(40, 80, 40, 0.25);
 }
 
-header::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-        to bottom,
-        rgba(20, 60, 30, 0.45),
-        rgba(20, 60, 30, 0.7)
-    );
-    z-index: 1;
-}
+
 
 .header-inner {
     position: relative;
@@ -241,46 +231,6 @@ footer a {
     transition: color 0.3s ease;
 }
 
-/* 移动设备适配 */
-@media (max-width: 768px) {
-    .music-container {
-        flex-direction: column;
-        gap: 20px;
-    }
-    .music-sidebar {
-        min-width: auto;
-    }
-    .music-main {
-        min-width: auto;
-    }
-    .demo-list-text {
-        display: flex;
-        gap: 10px;
-        overflow-x: auto;
-        padding-bottom: 8px;
-    }
-    .demo-list-text::-webkit-scrollbar {
-        height: 4px;
-    }
-    .demo-list-text::-webkit-scrollbar-thumb {
-        background: #4d8f4d;
-        border-radius: 4px;
-    }
-    .demo-link {
-        padding: 6px 12px;
-        white-space: nowrap;
-        border: none;
-        background: rgba(255,255,255,0.5);
-        border-radius: 4px;
-        font-size: 0.9em;
-    }
-    .music-sidebar::after {
-        display: none;
-    }
-
-
-}
-
 .demo-link:hover, .demo-link.active {
     color: #4d8f4d;
 }
@@ -384,6 +334,7 @@ footer a {
 @media (max-width: 768px) {
     header {
         padding: 20px 30px 20px;
+        background-image: url("ai13.png");
     }
 
     nav a {
@@ -392,6 +343,50 @@ footer a {
 
     section {
         padding: 30px 24px;
+    }
+
+    h2 {
+        text-align: center !important;
+    }
+
+    /* 音乐试听 - 移动设备适配 */
+    .music-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .music-sidebar {
+        min-width: auto;
+        width: 100%;
+        max-width: 100%;
+    }
+    .music-main {
+        min-width: auto;
+    }
+    .demo-list-text {
+        display: flex;
+        gap: 10px;
+        overflow-x: auto;
+        padding-bottom: 8px;
+        width: 100%;
+        justify-content: center;
+    }
+    .demo-list-text::-webkit-scrollbar {
+        height: 4px;
+    }
+    .demo-list-text::-webkit-scrollbar-thumb {
+        background: #4d8f4d;
+        border-radius: 4px;
+    }
+    .demo-link {
+        padding: 6px 12px;
+        white-space: nowrap;
+        border: none;
+        background: rgba(255,255,255,0.5);
+        border-radius: 4px;
+        font-size: 0.9em;
+    }
+    .music-sidebar::after {
+        display: none;
     }
 
     .demo-item {
@@ -411,7 +406,7 @@ footer a {
 
 @media (max-width: 480px) {
     h1 {
-        font-size: 24px !important;
+        font-size: 28px !important;
     }
 
     nav {
@@ -454,10 +449,12 @@ footer a {
             <p>「轟轟鳴」是一團由噪音、旋律與詩意交織而成的雲霧。</p>
             <p>我們的音樂沒有固定的風格，就像我們的生活一樣，充滿了未知和可能。(AI朋友所作，覺得很有意思先留在這裏)</p>
             <div class="member-list">
-                <p><strong>汽水</strong>：吉他，負責大部分歌曲的詞曲創作。喜歡在雨天彈吉他，相信雨水能洗淨靈魂。</p>
-                <p><strong>燒酒</strong>：吉他/vocal。還很神秘！</p>
-                <p><strong>牛奶</strong>：鼓手。還很神秘！</p>
-				<p><strong>睡覺</strong>：貝斯。還很神秘！</p>
+                <p><strong>青葉汽水</strong>：吉他，負責部分詞曲創作。茶味汽水，喜歡泡泡，但不能放太久，泡泡會偷偷逃跑。
+</p>
+                <p><strong>意識濃縮</strong>：吉他/vocal。疑似大語言模型。</p>
+                <p><strong>低糖牛奶</strong>：鼓手。曾經在高中小賣部喝過一個特別好喝的牛奶，叫低乳糖鮮牛奶，後來逛遍了超市也找不到了。
+</p>
+		<p><strong>熱血薯條</strong>：鼓手。拒絕疲軟，保持酥脆。</p>
             </div>
         </div>
     </section>
@@ -633,8 +630,13 @@ footer a {
                     <div class="photo-caption">浪潮前夕 / 2025.05</div>
                 </div>
                 <div class="photo-item">
-                    <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/8eb086bc17464bdea90b92a0a73cc056~tplv-a9rns2rl98-image.image?rcl=202512221102144E647658D069F0441B49&rk3s=8e244e95&rrcfp=f06b921b&x-expires=1768964583&x-signature=mQrrh8PqwSOS0rr7lM2j28SLGn0%3D" alt="樂隊成立">
-                    <div class="photo-caption">樂隊成立 / 2024.12.21</div>
+                    <img src="pc4.jpg" alt="轟轟鳴rat/第一次排練">
+                    <div class="photo-caption">轟轟鳴rat/第一次排練 / 2025.1.3</div>
+                </div>
+                <!-- 添加新照片示例 -->
+                <div class="photo-item">
+                    <img src="pc3.png" alt="冷波前團照">
+                    <div class="photo-caption">冷波前團照 / 2025.12.21</div>
                 </div>
             </div>
         </div>
