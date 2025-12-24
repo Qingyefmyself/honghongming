@@ -30,7 +30,7 @@ body {
 header {
     position: relative;
     padding: 20px 60px 20px;
-    background-image: url("ai12.png");
+    background-image: url("ai16.gif");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -334,7 +334,7 @@ footer a {
 @media (max-width: 768px) {
     header {
         padding: 20px 30px 20px;
-        background-image: url("ai13.png");
+        background-image: url("phone.gif");
     }
 
     nav a {
@@ -651,7 +651,7 @@ footer a {
 </footer>
 
 <!-- BGM -->
-<audio id="bgm" loop></audio>
+<audio id="bgm" src="hhm8bit.mp3" loop></audio>
 <button id="bgm-toggle" aria-label="bgm toggle">🎵</button>
 
 <script>
@@ -709,6 +709,12 @@ links.forEach(link => {
 const bgm = document.getElementById('bgm');
 const bgmToggle = document.getElementById('bgm-toggle');
 let isPlaying = false;
+
+// 确保音乐循环播放
+bgm.addEventListener('ended', () => {
+    bgm.currentTime = 0;
+    bgm.play().catch(()=>{});
+});
 
 bgmToggle.addEventListener('click', ()=>{
     if(isPlaying){
