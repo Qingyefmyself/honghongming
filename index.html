@@ -309,6 +309,258 @@ footer a {
     text-align: center;
 }
 
+/* ===== 成员网格布局 ===== */
+.member-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-top: 40px;
+    justify-content: center;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.member-item {
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    position: relative;
+}
+
+.member-item:hover {
+    transform: translateY(-8px);
+    opacity: 0.9;
+}
+
+.member-item img {
+    width: auto;
+    height: auto;
+    max-width: 150px;
+    max-height: 150px;
+    object-fit: contain;
+    border-radius: 0;
+    box-shadow: none;
+    background: transparent;
+    display: block;
+    margin: 0 auto;
+}
+
+.member-name {
+    margin-top: 12px;
+    font-size: 1.1em;
+    font-weight: 600;
+    color: #3f7f4a;
+}
+
+/* ===== 弹窗样式 ===== */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 10000;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.member-modal {
+    display: none;
+    width: 300px;
+    height: 400px;
+    background: transparent;
+    box-shadow: none;
+    margin: 0 auto;
+}
+
+.modal-content {
+    background: url('bg2.png') no-repeat center center;
+    background-size: 100% 100%;
+    background-color: transparent;
+    overflow: hidden;
+    transition: background-image 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 300px;
+    height: 400px;
+    position: relative;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    background: transparent;
+    border-bottom: none;
+    height: 10%; /* 第1份 */
+    box-sizing: border-box;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.modal-header h3 {
+    margin: 0;
+    font-size: 1.5em;
+    color: #333;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+    white-space: nowrap;
+    text-align: center;
+}
+
+.close-modal {
+    background: transparent;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: transparent;
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.close-modal:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.modal-body {
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    height: 90%; /* 剩余9份 */
+    box-sizing: border-box;
+    overflow: hidden;
+    position: relative;
+    background: transparent;
+    border: none;
+    width: 100%;
+}
+
+.member-detail-image {
+    width: 100%;
+    height: 55.56%; /* 2~6份（占modal-body的5/9，约55.56%） */
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding: 0;
+    box-sizing: border-box;
+    background: transparent;
+}
+
+.member-detail-image img {
+    width: auto;
+    height: auto;
+    max-width: 80%;
+    max-height: 80%;
+    border-radius: 0;
+    box-shadow: none;
+    object-fit: contain;
+}
+
+
+
+.member-detail-info {
+    max-width: 100%;
+    background: transparent;
+    padding: 10px 20px 0;
+    margin: 0;
+    border-radius: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    height: 44.44%; /* 7~10份（占modal-body的4/9，约44.44%） */
+    overflow: hidden;
+    box-sizing: border-box;
+    margin-top: 0;
+}
+
+.member-detail-info p {
+    margin-bottom: 10px;
+    line-height: 1.5;
+    color: #333;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+    font-size: 0.85em;
+    max-width: 100%;
+    padding: 0 5px;
+    box-sizing: border-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.member-detail-info p:last-child {
+    margin-bottom: 0;
+}
+
+.modal-footer {
+    display: none;
+}
+
+/* 手机端适配 */
+@media (max-width: 768px) {
+    .modal-header h3 {
+        font-size: 0.95em;
+        white-space: normal;
+        padding: 0 10px;
+    }
+    
+    .member-detail-image img {
+        max-width: 110px;
+        max-height: 110px;
+    }
+    
+
+    
+    .member-detail-info p {
+        font-size: 0.75em;
+        margin-bottom: 8px;
+        -webkit-line-clamp: 4;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-header h3 {
+        font-size: 0.85em;
+        padding: 0 8px;
+    }
+    
+    .member-detail-image img {
+        max-width: 85px;
+        max-height: 85px;
+    }
+    
+
+    
+    .member-detail-info p {
+        font-size: 0.65em;
+        margin-bottom: 6px;
+        line-height: 1.4;
+        -webkit-line-clamp: 5;
+    }
+}
+
 /* ===== BGM 按钮 ===== */
 #bgm-toggle {
     position: fixed;
@@ -448,13 +700,19 @@ footer a {
         <div class="band-intro">
             <p>「轟轟鳴」是一團由噪音、旋律與詩意交織而成的雲霧。</p>
             <p>我們的音樂沒有固定的風格，就像我們的生活一樣，充滿了未知和可能。(AI朋友所作，覺得很有意思先留在這裏)</p>
-            <div class="member-list">
-                <p><strong>青葉汽水</strong>：吉他，負責部分詞曲創作。茶味汽水，喜歡泡泡，但不能放太久，泡泡會偷偷逃跑。
-</p>
-                <p><strong>意識濃縮</strong>：吉他/vocal。疑似大語言模型。</p>
-                <p><strong>低糖牛奶</strong>：鼓手。曾經在高中小賣部喝過一個特別好喝的牛奶，叫低乳糖鮮牛奶，後來逛遍了超市也找不到了。
-</p>
-		<p><strong>熱血薯條</strong>：鼓手。拒絕疲軟，保持酥脆。</p>
+            <div class="member-grid">
+                <div class="member-item" data-member="member1">
+                    <img src="qingye.png" alt="青葉汽水">
+                </div>
+                <div class="member-item" data-member="member2">
+                    <img src="aiai.png" alt="意識濃縮">
+                </div>
+                <div class="member-item" data-member="member3">
+                    <img src="pu.png" alt="低糖牛奶">
+                </div>
+                <div class="member-item" data-member="member4">
+                    <img src="heng.png" alt="熱血薯條">
+                </div>
             </div>
         </div>
     </section>
@@ -643,6 +901,93 @@ footer a {
     </section>
 </main>
 
+<!-- 成员弹窗 -->
+<div id="member-modal-overlay" class="modal-overlay">
+    <!-- 成员1：青葉汽水 -->
+    <div id="member1" class="member-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>青葉汽水</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="member-detail-image">
+                    <img src="qingyeact.gif" alt="青葉汽水">
+                </div>
+                <div class="member-detail-info">
+                    <p>吉他，負責部分詞曲創作</p>
+                    <p>茶味汽水，喜歡泡泡，但不能放太久，泡泡會偷偷逃跑。</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+    
+    <!-- 成员2：意識濃縮 -->
+    <div id="member2" class="member-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>意識濃縮</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="member-detail-image">
+                    <img src="aisoloact.gif" alt="意識濃縮">
+                </div>
+                <div class="member-detail-info">
+                    <p>吉他/vocal</p>
+                    <p>疑似大語言模型。</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+    
+    <!-- 成员3：低糖牛奶 -->
+    <div id="member3" class="member-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>低糖牛奶</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="member-detail-image">
+                    <img src="puact.gif" alt="低糖牛奶">
+                </div>
+                <div class="member-detail-info">
+                    <p>贝斯</p>
+                    <p>曾經在高中小賣部喝過一個特別好喝的牛奶，叫低乳糖鮮牛奶，後來逛遍了超市也找不到了。</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+    
+    <!-- 成员4：熱血薯條 -->
+    <div id="member4" class="member-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>熱血薯條</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="member-detail-image">
+                    <img src="hengact.gif" alt="熱血薯條">
+                </div>
+                <div class="member-detail-info">
+                    <p>鼓手</p>
+                    <p>拒絕疲軟，保持酥脆。</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="footer-divider"></div>
 
 <footer>
@@ -737,6 +1082,65 @@ const unlockAudio = () => {
 
 document.addEventListener('touchstart', unlockAudio, { once:true });
 document.addEventListener('click', unlockAudio, { once:true });
+
+// ===== 成员弹窗功能 =====
+const memberItems = document.querySelectorAll('.member-item');
+const modalOverlay = document.getElementById('member-modal-overlay');
+const memberModals = document.querySelectorAll('.member-modal');
+const closeButtons = document.querySelectorAll('.close-modal');
+
+// 打开弹窗
+memberItems.forEach(item => {
+    item.addEventListener('click', () => {
+        const memberId = item.dataset.member;
+        const modal = document.getElementById(memberId);
+        modalOverlay.style.display = 'flex';
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    });
+});
+
+// 关闭弹窗
+function closeModal() {
+    modalOverlay.style.display = 'none';
+    memberModals.forEach(modal => {
+        modal.style.display = 'none';
+    });
+    document.body.style.overflow = 'auto';
+}
+
+// 点击关闭按钮关闭弹窗
+closeButtons.forEach(button => {
+    button.addEventListener('click', closeModal);
+});
+
+// 点击弹窗外部关闭弹窗
+modalOverlay.addEventListener('click', (e) => {
+    if (e.target === modalOverlay) {
+        closeModal();
+    }
+});
+
+// 按下ESC键关闭弹窗
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modalOverlay.style.display === 'flex') {
+        closeModal();
+    }
+});
+
+// 自定义背景图片设置功能
+// 使用方法: changeModalBackground('member1', '图片URL或DataURL');
+function changeModalBackground(modalId, imageUrl) {
+    const modal = document.getElementById(modalId);
+    const modalContent = modal.querySelector('.modal-content');
+    
+    if (imageUrl) {
+        modalContent.style.backgroundImage = `url('${imageUrl}')`;
+        modalContent.style.backgroundSize = 'cover';
+        modalContent.style.backgroundPosition = 'center';
+        modalContent.style.backgroundRepeat = 'no-repeat';
+    }
+}
 </script>
 
 </body>
